@@ -1,0 +1,159 @@
+header{
+	/* strange color, but only short visible */
+	background-color:#D0B0B0;
+	padding: 2%;
+	background-image: url("../images/flywheel.jpg");
+}
+
+body{ 
+	/* by the way: here it makes no differnce to set margin or padding, however both is requested */
+	margin:1%; 
+	padding:1%;
+}
+h1,h2{
+	text-transform:uppercase;
+}
+
+h1{
+	text-align:center;
+	font-size: 250%;
+	color:#ffffff;
+}
+
+h2{
+	color:#00057D;
+}
+
+aside{
+	background-color:#76751D;
+}
+
+/* percentages to make it much resizeable as possible (or as far as i know ;) */
+
+.left{
+	float:left;
+	 width: 15%;
+	
+	
+}
+
+
+
+
+.right{
+	float:right;
+	width: 80%;
+	background-color:#FFFFFF;
+}
+
+
+aside img{
+	display:block;
+	width: 80%;
+    margin: 5% auto;
+   
+    border-style: solid;
+    border-width: 5px;
+    
+}
+
+nav{
+	text-align:center;
+	padding: 2%;
+	
+}
+
+
+nav a{
+	display:inline-block;
+	text-align:center;
+	padding: 2% 4%;
+	margin: 0% 2%;
+	
+	color:#000000;
+	background-color:#FFFFFF;
+	opacity: 0.5;
+	
+    border-radius: 5px;
+	text-decoration:none;
+	
+}
+
+.active{
+	opacity: 1;
+}
+
+
+/* table */
+table{
+	margin:2% auto;
+	width: 75%;
+	font-family:verdana, sans-serif;
+	font-size: 16px ;
+	 font-weight: normal;
+	line-height: 30px; 
+	
+	-webkit-border-radius: 0 0 10px 10px;
+	border-radius: 10px 10px 0 0;
+	text-align: center;
+}
+
+
+
+
+th,  td{
+	margin: 10px;
+	padding: 10px;
+	border-spacing: 2px;
+}
+
+td{
+	background: #E4F5D4;
+	border-radius: 2px;
+	color:#373737;
+	text-shadow: 2px 2px #CECECE;
+}
+
+/* override the aligment for frist colmun */
+th:first-child,  td:first-child{
+	text-align: left;
+}
+
+
+
+th{
+	color:#FFFFFF;
+	
+	background: #929D4C; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#929D4C, #C7DA4E); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#929D4C, #C7DA4E); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#929D4C, #C7DA4E); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#929D4C, #C7DA4E); /* Standard syntax */
+   
+	border-color:#B1E053;
+	border-width: 1px 1px 4px 1px;
+	border-style: solid;
+}
+th:first-child{
+	
+	-webkit-border-radius: 0 0 0 10px;
+	border-radius: 10px 0 0 0;
+}
+
+th:last-child{
+	
+	-webkit-border-radius: 0 0 10px 0;
+	border-radius: 0 10px 0 0;
+}
+
+
+
+tr{
+	 opacity: 0.8; 
+	
+}
+tr:hover{
+	opacity: 1;
+}
+
+

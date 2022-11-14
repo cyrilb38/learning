@@ -1,0 +1,149 @@
+/*
+Introduction to CSS3 - Assignment 4
+Cyril 
+2016/11/10
+*/
+
+
+table {
+	font-family:"Times New Roman", Georgia, Serif;
+	text-shadow:2px 2px 8px rgba(0,0,0,0.8);
+	padding:2px;
+	margin: 1px;
+	text-align:center;
+}
+
+table tr:nth-child(n+2) {
+	opacity:0.8;
+}
+
+table tr:hover {
+	opacity:1;
+}
+
+table td {
+	border: 1px solid rgba(150,150,150,0.7);
+	background-color:rgba(255,255,255,1);
+	padding:3px;
+	line-height:150%;
+	font-size:0.9em;
+}
+
+
+table tr:nth-child(1) th {
+	border: 2px solid rgba(100,100,100,0.8);
+	border-bottom:5px solid rgba(255,255,255,0.5);
+	border-radius : 5px 5px 0px 0px;
+	color : rgba(255,255,255,1);
+	line-height:200%;
+	font-size:1.1em;
+	
+	background: rgba(0,150,0,0.8); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(rgba(0,150,0,0.8), rgba(0,255,0,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgba(0,150,0,0.8), rgba(0,255,0,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgba(0,150,0,0.8), rgba(0,255,0,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgba(0,150,0,0.8), rgba(0,255,0,1)); /* Standard syntax */
+}
+
+
+table th:nth-child(1),td:nth-child(1) {
+	text-align:left;
+}
+
+
+header {
+	background-color: #BFBFBF;
+	background-image: url(../images/flywheel.jpg);
+	background-size:cover;
+	height:20%;
+	padding:0.5%;
+}
+
+
+body{
+	padding : 1%;
+	margin : 0.5%;
+	font-size : 0.9em;
+}
+
+
+
+h1 {
+	color: rgba(255,255,255,1);
+	text-transform : uppercase;
+	text-align: center;
+	font-size: 2.5em;
+}
+
+
+h2 {
+	color: rgba(0,120,120,0.7);
+	text-transform : uppercase;
+}
+
+section {
+	background-color: rgba(255,255,205,0.4);
+}
+
+a {
+	background-color: rgba(100,100,100,0.1);
+	color: rgba(200,150,50,0.7);
+	text-align:center;
+}
+
+nav {
+	text-align: center;
+}
+
+nav a {
+	display : inline-block;
+	width : 20%;
+	line-height : 30px;
+	background-color: rgba(255,255,255,0.5);
+	color : rgba(17,107,150,0.7);
+	margin:1%;
+	padding:0.5%;
+	border-radius:10%;
+	text-decoration:none;
+}
+
+img {
+	display:none;
+}
+
+.active {
+	background-color:rgba(255,255,255,1);
+	color : rgba(0,0,0,1);
+	font-size:1.2em;
+}
+
+main{
+	float:left;
+}
+
+.left{
+	float:left;
+	width:23%;
+	height : 500px;
+	background-color:rgba(167,240,240,0.8);
+	margin : 1% 0%;
+}
+
+.left img{
+	height : 28%;
+	width:	70%;
+	display:block;
+	padding:3%;	
+	margin : 1% auto;
+	border: solid #000000 1px;
+	background-color:rgba(255,255,255,1);
+}
+
+
+.right {
+	margin : 1% 0%;
+	float:right;
+	width:73%;
+	height:500px;
+	padding : 0% 1%;
+}

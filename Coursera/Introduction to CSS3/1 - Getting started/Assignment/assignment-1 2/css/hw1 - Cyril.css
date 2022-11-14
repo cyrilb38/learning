@@ -1,0 +1,36 @@
+/*
+Introduction to CSS3 - Assignment 1
+Cyril Benhafed
+2016/11/01
+*/
+
+
+header {
+	background-color: #BFBFBF;
+}
+
+h1 {
+	color: rgba(0,120,120,0.7);
+	font-variant : small-caps;
+	text-align: center;
+}
+
+
+h1 {
+	color: rgba(0,120,120,0.7);
+	font-variant : small-caps;
+}
+
+section {
+	background-color: rgba(100,20,180,0.2);
+}
+
+a {
+	background-color: rgba(90,180,230,0.3);
+	color: rgba(200,150,50,0.7);
+	text-align:center;
+}
+
+img {
+	display:none;
+}
