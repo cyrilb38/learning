@@ -1,12 +1,16 @@
 # Uses python3
 import sys
 
-def lcm_naive(a, b):
-    for l in range(1, a*b + 1):
-        if l % a == 0 and l % b == 0:
-            return l
+def gcd_naive(a, b):
+    maxounet = max([a, b])
+    minounet = min([a, b])
+    if minounet == 0:
+        return maxounet
+    else:
+        return gcd_naive(minounet, maxounet % minounet)
 
-    return a*b
+def lcm_naive(a, b):
+    return int(a * b / gcd_naive(a, b))
 
 if __name__ == '__main__':
     input = sys.stdin.read()
