@@ -4,18 +4,30 @@ import sys
 import queue
 
 def distance(adj, s, t):
-    #write your code here
+    to_process = queue.Queue()
+    to_process.put(s)
+    visited = {s : 0}
+    while not to_process.empty():
+        current_node = to_process.get()
+        for neighbor in adj[current_node]:
+            if neighbor not in visited.keys():
+                visited[neighbor] = visited[current_node]  + 1
+                to_process.put(neighbor)
+            if neighbor == t:
+                break
+    
+    if t in visited.keys():
+        return visited[t]
     return -1
 
 if __name__ == '__main__':
-    input = sys.stdin.read()
-    data = list(map(int, input.split()))
-    n, m = data[0:2]
-    data = data[2:]
-    edges = list(zip(data[0:(2 * m):2], data[1:(2 * m):2]))
-    adj = [[] for _ in range(n)]
-    for (a, b) in edges:
-        adj[a - 1].append(b - 1)
-        adj[b - 1].append(a - 1)
-    s, t = data[2 * m] - 1, data[2 * m + 1] - 1
+    adj = {}
+    n, m = map(int, input().split())
+    for node in range(1, n+1):
+        adj[node] = []
+    for edge in range(m):
+        a, b = map(int, input().split())
+        adj[a].append(b)
+        adj[b].append(a)
+    s, t = map(int, input().split())
     print(distance(adj, s, t))
