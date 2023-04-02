@@ -1,6 +1,22 @@
 # python3
 
 
+def bubble_down(data, indice):
+    indice_min = None
+    if (indice * 2 + 2) < len(data) :
+        indice_min = (indice * 2 + 1) if (data[(indice * 2) + 1] < data[(indice * 2) + 2]) else (indice * 2 + 2)
+    elif (indice * 2 + 1) < len(data) :
+        indice_min = (indice * 2 + 1)
+
+    if indice_min is not None and data[indice_min] < data[indice]:     
+        swap = [(indice, indice_min)]
+        data[indice], data[indice_min] = data[indice_min], data[indice]
+        swap += bubble_down(data, indice_min)
+    else :
+        return []
+    
+    return swap
+
 def build_heap(data):
     """Build a heap from ``data`` inplace.
 
@@ -13,11 +29,8 @@ def build_heap(data):
     #
     # TODO: replace by a more efficient implementation
     swaps = []
-    for i in range(len(data)):
-        for j in range(i + 1, len(data)):
-            if data[i] > data[j]:
-                swaps.append((i, j))
-                data[i], data[j] = data[j], data[i]
+    for i in range(len(data)//2, -1, -1):
+        swaps += bubble_down(data, i)
     return swaps
 
 
