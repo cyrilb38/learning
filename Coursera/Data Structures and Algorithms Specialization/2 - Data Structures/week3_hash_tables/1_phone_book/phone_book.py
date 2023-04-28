@@ -1,5 +1,33 @@
 # python3
 
+
+import random
+class Phonebook():
+
+    def __init__(self, m):
+        self.m = m
+        self.array = ['not found' for x in range(m)]
+        
+    #     # hash info
+    #     self.p = 10888869450418352160768000001 # prime number used for hashing
+    #     random.seed(0)
+    #     self.a = random.randint(1, self.p-1)
+    #     self.b = random.randint(0, self.p-1)
+
+    # def hash(self, phone_number):
+    #     return ((self.a * phone_number + self.b) % self.p) % self.m
+    
+    def add(self, phone_number, name):
+        self.array[phone_number] = name
+
+    
+    def find(self, phone_number):
+        return self.array[phone_number]
+    
+    def delete(self, phone_number):
+        self.array[phone_number] = "not found"
+
+
 class Query:
     def __init__(self, query):
         self.type = query[0]
@@ -15,30 +43,15 @@ def write_responses(result):
     print('\n'.join(result))
 
 def process_queries(queries):
+    phone_book = Phonebook(10**7)
     result = []
-    # Keep list of all existing (i.e. not deleted yet) contacts.
-    contacts = []
     for cur_query in queries:
         if cur_query.type == 'add':
-            # if we already have contact with such number,
-            # we should rewrite contact's name
-            for contact in contacts:
-                if contact.number == cur_query.number:
-                    contact.name = cur_query.name
-                    break
-            else: # otherwise, just add it
-                contacts.append(cur_query)
+            phone_book.add(cur_query.number, cur_query.name)
         elif cur_query.type == 'del':
-            for j in range(len(contacts)):
-                if contacts[j].number == cur_query.number:
-                    contacts.pop(j)
-                    break
+            phone_book.delete(cur_query.number)
         else:
-            response = 'not found'
-            for contact in contacts:
-                if contact.number == cur_query.number:
-                    response = contact.name
-                    break
+            response = phone_book.find(cur_query.number)
             result.append(response)
     return result
 
