@@ -17,7 +17,7 @@ class QueryProcessor:
     def __init__(self, bucket_count):
         self.bucket_count = bucket_count
         # store all strings in one list
-        self.elems = []
+        self.elems = [[] for _ in range(self.bucket_count)]
 
     def _hash_func(self, s):
         ans = 0
@@ -28,30 +28,40 @@ class QueryProcessor:
     def write_search_result(self, was_found):
         print('yes' if was_found else 'no')
 
-    def write_chain(self, chain):
-        print(' '.join(chain))
+    # def write_chain(self, chain):
+    #     print(' '.join(chain))
 
     def read_query(self):
         return Query(input().split())
 
     def process_query(self, query):
         if query.type == "check":
-            # use reverse order, because we append strings to the end
-            self.write_chain(cur for cur in reversed(self.elems)
-                        if self._hash_func(cur) == query.ind)
-        else:
-            try:
-                ind = self.elems.index(query.s)
-            except ValueError:
-                ind = -1
-            if query.type == 'find':
-                self.write_search_result(ind != -1)
-            elif query.type == 'add':
-                if ind == -1:
-                    self.elems.append(query.s)
-            else:
-                if ind != -1:
-                    self.elems.pop(ind)
+            print(" ".join(reversed(self.elems[query.ind])))
+        else : 
+            hash = self._hash_func(query.s)
+            if query.type == "add":
+                if query.s not in self.elems[hash]:
+                    self.elems[hash].append(query.s)
+            elif query.type == "del":
+                # go through the chain to find the index of the element and delete it
+                has_been_removed = False
+                i = 0
+                while i < len(self.elems[hash]) and not has_been_removed:
+                    if self.elems[hash][i] == query.s:
+                        del self.elems[hash][i]
+                        has_been_removed = True
+                    else:
+                        i += 1
+            elif query.type == "find":
+               # go through the chain to find the index of the element
+                found = False
+                i = 0
+                while i < len(self.elems[hash]) and not found:
+                    if self.elems[hash][i] == query.s:
+                        found = True
+                    else :
+                        i += 1
+                print("yes" if found else "no")
 
     def process_queries(self):
         n = int(input())
