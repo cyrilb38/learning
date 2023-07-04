@@ -4,10 +4,11 @@ import sys
 
 def max_dot_product(a, b):
     #write your code here
-    res = 0
-    for i in range(len(a)):
-        res += a[i] * b[i]
-    return res
+    a = sorted(a, reverse=True)
+    b = sorted(b, reverse=True)
+    return sum([a[i] * b[i] for i in range(len(a))])
+
+# print(max_dot_product([2,3,9], [7,4,2]))
 
 if __name__ == '__main__':
     input = sys.stdin.read()
